@@ -15,6 +15,7 @@ const SingleUserPage = () => {
 
   useEffect(() => {
     fetchPatterns();
+    // eslint-disable-next-line
   }, []);
 
   if (isLoading) {
