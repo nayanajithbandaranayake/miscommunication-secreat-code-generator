@@ -153,10 +153,6 @@ export const converterReducer: React.Reducer<InitialState, Action> = (
         }
       }
     }
-    console.log(matches + space_count + num_count === phrase.length);
-    console.log(matches);
-    console.log(space_count);
-    console.log(num_count);
 
     if (matches + space_count + num_count === phrase.length) {
       return {
