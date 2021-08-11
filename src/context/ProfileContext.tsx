@@ -38,6 +38,7 @@ const ProfileContextProvider: React.FC<React.ReactNode> = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
+    // eslint-disable-next-line
   }, []);
   const fetchAddedLanguageData = useCallback(async () => {
     try {
@@ -52,6 +53,7 @@ const ProfileContextProvider: React.FC<React.ReactNode> = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
+    // eslint-disable-next-line
   }, []);
   const deleteLanguage = useCallback(async (lang: string) => {
     try {
@@ -65,6 +67,7 @@ const ProfileContextProvider: React.FC<React.ReactNode> = ({ children }) => {
     } finally {
       fetchPatterns();
     }
+    // eslint-disable-next-line
   }, []);
   const removeAddedLanguage = useCallback(async (language: string) => {
     try {
@@ -78,6 +81,7 @@ const ProfileContextProvider: React.FC<React.ReactNode> = ({ children }) => {
     } finally {
       fetchPatterns();
     }
+    // eslint-disable-next-line
   }, []);
   const checkIsAdded = () => {
     for (let i = 0; i < languageData.added_languages.length; i++) {
@@ -107,6 +111,7 @@ const ProfileContextProvider: React.FC<React.ReactNode> = ({ children }) => {
     } finally {
       fetchPatterns();
     }
+    // eslint-disable-next-line
   }, []);
 
   const checkFormat = () => {

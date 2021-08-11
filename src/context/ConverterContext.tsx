@@ -17,7 +17,6 @@ import {
 } from "../actions/types";
 import axios from "axios";
 import { useGlobalContext } from "./GlobalContext";
-import chkchars from "chkchars";
 
 const converterContext = React.createContext<Value | null>(null);
 
