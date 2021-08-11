@@ -12,7 +12,7 @@ const Head: React.FC<Props> = ({ title, description, keywords }) => {
     <Helmet>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
-      <title>{`Miscommunication | ${title}`}</title>
+      <title>{`${title} | Miscommunication`}</title>
     </Helmet>
   );
 };

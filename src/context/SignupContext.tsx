@@ -35,8 +35,6 @@ const initialState: SignupInitialState = {
 };
 
 const SignupContextProvider: React.FC<React.ReactNode> = ({ children }) => {
-  console.log("mount");
-
   const { setIsLogged, setIsLoading, setIsVerified } = useGlobalContext()!;
 
   const [state, dispatch] = useReducer(signupReducer, initialState);

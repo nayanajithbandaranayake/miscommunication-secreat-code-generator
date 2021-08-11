@@ -46,7 +46,6 @@ const ProfileContextProvider: React.FC<React.ReactNode> = ({ children }) => {
           JSON.parse(localStorage.getItem("user")!)[0].username
         }`
       );
-      console.log(data);
       setLanguageData((current) => {
         return { ...current, added_languages: [...data] };
       });

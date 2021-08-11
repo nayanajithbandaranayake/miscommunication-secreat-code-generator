@@ -13,7 +13,6 @@ const Library = () => {
   useEffect(() => {
     fetchLangData(lang);
     fetchLangInfo(lang);
-    console.log(info);
     // eslint-disable-next-line
   }, [lang]);
 
