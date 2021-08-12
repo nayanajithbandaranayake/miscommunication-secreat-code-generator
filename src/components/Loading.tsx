@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { ImSpinner8 } from "react-icons/im";
 
 const Loading = () => {
   return (
     <Wrapper className="section-center">
       <article>
-        <div className="spinner"></div>
+        <div className="spinner">
+          <ImSpinner8 />
+        </div>
         <h4>Loading...</h4>
       </article>
     </Wrapper>
