@@ -99,7 +99,12 @@ const ConverterContextProvider: React.FC<React.ReactNode> = ({ children }) => {
   const encode = async (phrase: string, language: string) => {
     setIsLoading(true);
     const { data } = await axios.get(
-      `${BACKEND}/convert/encode/${language}?phrase=${phrase}`
+      `${BACKEND}/convert/encode/${language}?phrase=${phrase}`,
+      {
+        headers: {
+          "Access-Control-Allow-Origin": "https://miscommunication.netlify.app",
+        },
+      }
     );
 
     setOutput(data.phrase);
@@ -129,7 +134,13 @@ const ConverterContextProvider: React.FC<React.ReactNode> = ({ children }) => {
       const { data }: any = await axios.get(
         `${BACKEND}/languages/all?username=${
           JSON.parse(localStorage.getItem("user")!)[0].username
-        }`
+        }`,
+        {
+          headers: {
+            "Access-Control-Allow-Origin":
+              "https://miscommunication.netlify.app",
+          },
+        }
       );
       if (data.length !== 0) {
         let languages = [];
@@ -152,7 +163,13 @@ const ConverterContextProvider: React.FC<React.ReactNode> = ({ children }) => {
         .get(
           `${BACKEND}/languages/${language}/info?username=${
             JSON.parse(localStorage.getItem("user")!)[0].username
-          }`
+          }`,
+          {
+            headers: {
+              "Access-Control-Allow-Origin":
+                "https://miscommunication.netlify.app",
+            },
+          }
         )
         .then((res) =>
           dispatch({
