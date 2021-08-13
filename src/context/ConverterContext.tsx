@@ -118,6 +118,12 @@ const ConverterContextProvider: React.FC<React.ReactNode> = ({ children }) => {
         `${BACKEND}/convert/decode/${language}`,
         {
           phrase,
+        },
+        {
+          headers: {
+            "Access-Control-Allow-Origin":
+              "https://miscommunication.netlify.app",
+          },
         }
       );
       if (data.error) {

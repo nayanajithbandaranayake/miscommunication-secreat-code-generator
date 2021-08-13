@@ -85,6 +85,8 @@ button {
   border-radius: 0.2em;
   padding: 0.5em;
   font-size: 1.1em;
+  display: grid;
+  place-items: center;
 }
 
 .section {
