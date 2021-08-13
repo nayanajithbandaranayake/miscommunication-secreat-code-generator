@@ -43,7 +43,7 @@ const initialState: InitialState = {
 
 const ConverterContextProvider: React.FC<React.ReactNode> = ({ children }) => {
   const [state, dispatch] = useReducer(converterReducer, initialState);
-  const { isLogged } = useGlobalContext()!;
+  const { isLogged, setIsLoading } = useGlobalContext()!;
   const setInput = (phrase: string) => {
     dispatch({ type: UPDATE_CONVERTER_INPUT, payload: phrase });
   };
@@ -97,14 +97,17 @@ const ConverterContextProvider: React.FC<React.ReactNode> = ({ children }) => {
   const BACKEND = process.env.REACT_APP_BACKEND;
 
   const encode = async (phrase: string, language: string) => {
+    setIsLoading(true);
     const { data } = await axios.get(
       `${BACKEND}/convert/encode/${language}?phrase=${phrase}`
     );
 
     setOutput(data.phrase);
+    setIsLoading(false);
   };
 
   const decode = async (phrase: string, language: string) => {
+    setIsLoading(true);
     if (!state.divide_error && !state.type_error) {
       const { data } = await axios.post(
         `${BACKEND}/convert/decode/${language}`,
@@ -119,6 +122,7 @@ const ConverterContextProvider: React.FC<React.ReactNode> = ({ children }) => {
       }
       setOutput(data.phrase);
     }
+    setIsLoading(false);
   };
   const setLanguages = async () => {
     if (isLogged) {

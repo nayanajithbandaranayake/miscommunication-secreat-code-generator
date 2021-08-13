@@ -389,3 +389,13 @@ header {
     grid-row: 2;
   }
 }
+.spinner {
+  opacity: 1;
+  animation: spinner 0.4s infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotateZ(360deg);
+  }
+}

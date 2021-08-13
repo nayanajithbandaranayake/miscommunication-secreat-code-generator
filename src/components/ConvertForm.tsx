@@ -3,6 +3,7 @@ import { useConverterContext } from "../context/ConverterContext";
 import styled from "styled-components";
 import { useGlobalContext } from "../context/GlobalContext";
 import { useEffect } from "react";
+import { ImSpinner8 } from "react-icons/im";
 
 const ConvertForm = () => {
   const {
@@ -35,7 +36,7 @@ const ConvertForm = () => {
     info: { lang, languages },
   } = useConverterContext()!;
 
-  const { isLogged } = useGlobalContext()!;
+  const { isLogged, isLoading } = useGlobalContext()!;
 
   useEffect(() => {
     setLanguages();
@@ -133,7 +134,17 @@ const ConvertForm = () => {
         )}
         {space_error && <h5 className="error">Please use '_' for spacing.</h5>}
         <button type="submit" className="btn convert-btn">
-          {code_type === "encode" ? "Encode" : "Decode"}
+          <button type="submit" className="btn signup-btn">
+            {isLoading ? (
+              <div className="spinner">
+                <ImSpinner8 />
+              </div>
+            ) : code_type === "encode" ? (
+              "Encode"
+            ) : (
+              "Decode"
+            )}
+          </button>
         </button>
         <label htmlFor="output" className="name">
           output

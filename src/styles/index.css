@@ -502,4 +502,24 @@ header nav a:hover {
   -ms-grid-row: 2;
   grid-row: 2;
 }
+
+.spinner {
+  opacity: 1;
+  -webkit-animation: spinner 0.4s infinite;
+          animation: spinner 0.4s infinite;
+}
+
+@-webkit-keyframes spinner {
+  to {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+  }
+}
+
+@keyframes spinner {
+  to {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+  }
+}
 /*# sourceMappingURL=index.css.map */

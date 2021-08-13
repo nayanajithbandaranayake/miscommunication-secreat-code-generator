@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useGlobalContext } from "../context/GlobalContext";
 import { useLoginContext } from "../context/LoginContext";
+import { ImSpinner8 } from "react-icons/im";
 
 const LoginForm = () => {
   const {
@@ -84,7 +85,13 @@ const LoginForm = () => {
         </div>
       </div>
       <button type="submit" className="btn login-btn">
-        Log in
+        {isLoading ? (
+          <div className="spinner">
+            <ImSpinner8 />
+          </div>
+        ) : (
+          "Log in"
+        )}
       </button>
       <div className="post-script">
         <h3>

@@ -2,6 +2,7 @@ import React from "react";
 import { useSignupContext } from "../context/SignupContext";
 import { Link, useHistory } from "react-router-dom";
 import { useGlobalContext } from "../context/GlobalContext";
+import { ImSpinner8 } from "react-icons/im";
 
 const SignupForm = () => {
   const {
@@ -39,7 +40,6 @@ const SignupForm = () => {
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    console.log("hello");
     setClicked();
 
     validateUsername(username);
@@ -64,7 +64,6 @@ const SignupForm = () => {
       !username_post_error
     ) {
       if (isVerified) {
-        console.log("post");
         postData(username, email, password);
         if (isLoading === false) {
           history.push("/");
@@ -143,7 +142,13 @@ const SignupForm = () => {
         <h4 className="error">Please fill out necessary fields.</h4>
       )}
       <button type="submit" className="btn signup-btn">
-        Sign up
+        {isLoading ? (
+          <div className="spinner">
+            <ImSpinner8 />
+          </div>
+        ) : (
+          "Sign up"
+        )}
       </button>
       <div className="post-script">
         <h3>

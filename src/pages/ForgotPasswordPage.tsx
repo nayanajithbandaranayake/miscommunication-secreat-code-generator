@@ -3,8 +3,12 @@ import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Head from "../components/Head";
+import { useGlobalContext } from "../context/GlobalContext";
+import { ImSpinner8 } from "react-icons/im";
 
 const ForgotPasswordPage = () => {
+  const { isLoading, setIsLoading } = useGlobalContext()!;
+
   const BACKEND = process.env.REACT_APP_BACKEND;
   const history = useHistory();
   const [info, setInfo] = useState({
@@ -73,10 +77,12 @@ const ForgotPasswordPage = () => {
   };
 
   const updateUser = async () => {
+    setIsLoading(true);
     await axios.put(`${BACKEND}/users`, {
       email: info.email,
       password: info.password,
     });
+    setIsLoading(false);
   };
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
@@ -85,7 +91,7 @@ const ForgotPasswordPage = () => {
     if (verified) {
       if (!errors.confirm && !errors.email && !errors.password) {
         updateUser();
-        history.push("/login");
+        if (!isLoading) history.push("/login");
       }
     }
   };
@@ -134,7 +140,13 @@ const ForgotPasswordPage = () => {
           />
         </div>
         <button type="submit" className="btn submit-btn">
-          Reset
+          {isLoading ? (
+            <div className="spinner">
+              <ImSpinner8 />
+            </div>
+          ) : (
+            "Reset"
+          )}
         </button>
         {errors.email && <h4 className="error">Email error!</h4>}
         {errors.password && (

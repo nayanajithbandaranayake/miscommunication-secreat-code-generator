@@ -22,16 +22,6 @@ const Wrapper = styled.section`
   bottom: 0;
   left: 0;
   right: 0;
-  .spinner {
-    opacity: 1;
-    animation: spinner 0.4s infinite;
-  }
-
-  @keyframes spinner {
-    to {
-      transform: rotateZ(360deg);
-    }
-  }
 `;
 
 export default Loading;
