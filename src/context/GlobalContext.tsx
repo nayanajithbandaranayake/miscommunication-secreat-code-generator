@@ -6,7 +6,7 @@ const globalContext = React.createContext<Value | null>(null);
 
 const GlobalContextProvider: React.FC<React.ReactNode> = ({ children }) => {
   const [isLogged, setIsLogged] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
   const [converterChecked, setConverterChecked] = useState(false);
 

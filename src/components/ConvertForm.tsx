@@ -134,17 +134,15 @@ const ConvertForm = () => {
         )}
         {space_error && <h5 className="error">Please use '_' for spacing.</h5>}
         <button type="submit" className="btn convert-btn">
-          <button type="submit" className="btn signup-btn">
-            {isLoading ? (
-              <div className="spinner">
-                <ImSpinner8 />
-              </div>
-            ) : code_type === "encode" ? (
-              "Encode"
-            ) : (
-              "Decode"
-            )}
-          </button>
+          {isLoading ? (
+            <div className="spinner">
+              <ImSpinner8 />
+            </div>
+          ) : code_type === "encode" ? (
+            "Encode"
+          ) : (
+            "Decode"
+          )}
         </button>
         <label htmlFor="output" className="name">
           output
