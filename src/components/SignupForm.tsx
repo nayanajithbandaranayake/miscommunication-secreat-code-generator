@@ -142,13 +142,7 @@ const SignupForm = () => {
         <h4 className="error">Please fill out necessary fields.</h4>
       )}
       <button type="submit" className="btn signup-btn">
-        {isLoading ? (
-          <div className="spinner">
-            <ImSpinner8 />
-          </div>
-        ) : (
-          "Sign up"
-        )}
+        {isLoading ? <ImSpinner8 className="spinner" /> : "Sign up"}
       </button>
       <div className="post-script">
         <h3>

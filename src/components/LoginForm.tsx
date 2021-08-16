@@ -85,13 +85,7 @@ const LoginForm = () => {
         </div>
       </div>
       <button type="submit" className="btn login-btn">
-        {isLoading ? (
-          <div className="spinner">
-            <ImSpinner8 />
-          </div>
-        ) : (
-          "Log in"
-        )}
+        {isLoading ? <ImSpinner8 className="spinner" /> : "Log in"}
       </button>
       <div className="post-script">
         <h3>

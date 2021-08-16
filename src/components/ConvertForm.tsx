@@ -135,9 +135,7 @@ const ConvertForm = () => {
         {space_error && <h5 className="error">Please use '_' for spacing.</h5>}
         <button type="submit" className="btn convert-btn">
           {isLoading ? (
-            <div className="spinner">
-              <ImSpinner8 />
-            </div>
+            <ImSpinner8 className="spinner" />
           ) : code_type === "encode" ? (
             "Encode"
           ) : (
@@ -209,6 +207,12 @@ const Wrapper = styled.form`
     padding: 1em;
     border: none;
     background: #eeeeff;
+  }
+  @media (max-width: 550px) {
+    & {
+      min-height: 35em;
+      min-width: 25em;
+    }
   }
 `;
 
